@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "weave",
+    "build": "weave build"
+  },
+  "dependencies": {
+    "weave-io": "0.8.3"
+  }
+}

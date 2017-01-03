@@ -1,0 +1,7 @@
+
+.root {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}

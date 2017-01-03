@@ -1,0 +1,14 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.root {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    flex-direction: column;
+}
