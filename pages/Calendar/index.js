@@ -39,6 +39,11 @@ export default class Calendar extends Component {
     currentYear : new Date().getFullYear(),
   }
 
+  nextMonth() {
+    const { currentMonth } = this.state;
+    return this.setState({ currentMonth: currentMonth + 1 });
+  }
+
   daysInMonth(month, year) {
     return new Date(year, month, 0).getDate();
   }
@@ -68,25 +73,33 @@ export default class Calendar extends Component {
     </Week>
   }
 
-  renderWeeks() {
+  renderWeeks(offset, lastDay) {
     const { currentMonth, currentYear } = this.state;
     const numOfWeeks = this.weekCount(currentMonth, currentYear);
     return [ ...Array(numOfWeeks) ].map((_, i) => <Week>
-      { this.renderDays(i) }
+      { this.renderDays(i, offset, lastDay) }
     </Week>);
   }
 
-  renderDays(week) {
-    return [ ...Array(7) ].map((_, d) => <Day>
-      { d + 1 + 7 * week }
-    </Day>);
+  renderDays(week, offset, lastDay) {
+    return [ ...Array(7) ].map((_, d) => this.renderDay(d + 1 + 7 * week - offset, lastDay));
+  }
+
+  renderDay(day, lastDay) {
+    if ( day <= 0 || day > lastDay ) {
+      return <Day />;
+    }
+    return <Day>{ day }</Day>;
   }
 
   render() {
-    console.log(this.dayOfWeek(2, 1, 2017));
+    const { currentMonth, currentYear } = this.state;
+    const offset = this.dayOfWeek(1, currentMonth, currentYear);
+    const lastDay = this.lastDay(currentMonth, currentYear).getDate();
     return <div className={styles.root}>
       { this.renderWeekdays() }
-      { this.renderWeeks() }
+      { this.renderWeeks(offset, lastDay) }
+      <button onClick={::this.nextMonth}>Next</button>
     </div>
   }
 
