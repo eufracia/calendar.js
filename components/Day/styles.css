@@ -6,3 +6,7 @@
     align-items: center;
     justify-content: center;
 }
+
+.disable {
+    background-color: #fff4f4;
+}

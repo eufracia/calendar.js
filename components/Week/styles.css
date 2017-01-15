@@ -5,3 +5,19 @@
     flex-direction: row;
     flex: 1;
 }
+
+.root:first-child {
+    font-size: 12px;
+    font-weight: 500;
+    height: 60px;
+    border-bottom: 1px solid #f5e2e2;
+    background-color: #fff3f3;
+    color: #ff928a;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.root:not(:first-child):nth-child(odd) {
+    background-color: #fff8fd;
+}
+
