@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "start": "weave build && node ./dist/server.js",
     "dev": "weave",
     "build": "weave build"
   },
