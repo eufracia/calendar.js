@@ -5,7 +5,7 @@
     "build": "weave build"
   },
   "dependencies": {
-    "weave-io": "0.8.3",
+    "weave-io": "0.8.12",
     "js-cookie": "2.1.3 "
   }
 }
